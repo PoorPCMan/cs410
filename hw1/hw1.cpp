@@ -38,20 +38,20 @@ int main(int argc, char **argv)
     //body
     std::cout << "You are using the LENS-O-MATIC program" << std::endl;
     std::cout << "Enter: " << std::endl;
-    std::cout << "left visual acuity: ";
+    std::cout << std::setw(25) << "left visual acuity: ";
     std::cin >> lva;
     //std::endl;
-    std::cout << std::setw(10) << "right visual acuity: ";
+    std::cout << std::setw(26) << "right visual acuity: ";
     std::cin >> rva;
     std::cout << std::setw(10) << "ssn: ";
     std::cin >> ssn;
-    std::cout << std::setw(10) << "insurance: ";
+    std::cout << std::setw(16) << "insurance: ";
     std::cin >> ins;
     thicc = calcthicc(lva, rva, k1ref, k2money, iaf);
-    std::cout << std::setw(10) << "thickness of lens: "
+    std::cout << std::setw(24) << "thickness of lens: "
               << thicc
               << " cm" << std::endl;
-    std::cout << std::setw(10) << "Good luck with those glasses! And come back to see Dr. Nick!";
+    std::cout << std::setw(50) << "Good luck with those glasses! And come back to see Dr. Nick!";
 
 
     
