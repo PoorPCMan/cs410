@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 //using namespace std; //basically a class name signifier
 //if you use namespace std, it serves as a problem to deal with other namespaces
 //also futureproofs your code
@@ -8,6 +9,7 @@
 RESTRICTIONS:
 
 - DO NOT use if/else statements (no conditionals)
+ * solution? run each variable and check if its truly
 - thickness value should be ROUNDED DOWN to nearest integer value
 
 ==============================================================
@@ -36,18 +38,20 @@ int main(int argc, char **argv)
     //body
     std::cout << "You are using the LENS-O-MATIC program" << std::endl;
     std::cout << "Enter: " << std::endl;
-    std::cout << "	left visual acuity: ";
+    std::cout << "left visual acuity: ";
     std::cin >> lva;
     //std::endl;
-    std::cout << "	right visual acuity: ";
+    std::cout << std::setw(10) << "right visual acuity: ";
     std::cin >> rva;
-    std::cout << "  ssn: ";
+    std::cout << std::setw(10) << "ssn: ";
     std::cin >> ssn;
-    std::cout << "  insurance ";
+    std::cout << std::setw(10) << "insurance: ";
     std::cin >> ins;
-    calcthicc(lva, rva, k1ref, k2money, iaf);
-    std::cout << std::string("  thickness of lens: ") + thicc + " cm" << std::endl;
-    std::cout << "Good luck with those glasses! And come back to see Dr. Nick!";
+    thicc = calcthicc(lva, rva, k1ref, k2money, iaf);
+    std::cout << std::setw(10) << "thickness of lens: "
+              << thicc
+              << " cm" << std::endl;
+    std::cout << std::setw(10) << "Good luck with those glasses! And come back to see Dr. Nick!";
 
 
     

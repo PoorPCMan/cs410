@@ -93,6 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
-    <File Name="hw1.cpp"/>
+    <File Name="test.cpp" ExcludeProjConfig="Debug;"/>
+    <File Name="hw1.cpp" ExcludeProjConfig=""/>
   </VirtualDirectory>
 </CodeLite_Project>

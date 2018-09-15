@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Andy Tran
-Date                   :=14/09/2018
+Date                   :=15/09/2018
 CodeLitePath           :="C:/Program Files/CodeLite"
 LinkerName             :=C:/TDM-GCC-64/bin/g++.exe
 SharedObjectLinkerName :=C:/TDM-GCC-64/bin/g++.exe -shared -fPIC
@@ -62,7 +62,7 @@ AS       := C:/TDM-GCC-64/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/hw1.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/test.cpp$(ObjectSuffix) 
 
 
 
@@ -93,13 +93,13 @@ PreBuild:
 ##
 ## Objects
 ##
-$(IntermediateDirectory)/hw1.cpp$(ObjectSuffix): hw1.cpp $(IntermediateDirectory)/hw1.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Andy Tran/Desktop/GitHub/cs410/hw1/hw1.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/hw1.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/hw1.cpp$(DependSuffix): hw1.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/hw1.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/hw1.cpp$(DependSuffix) -MM hw1.cpp
+$(IntermediateDirectory)/test.cpp$(ObjectSuffix): test.cpp $(IntermediateDirectory)/test.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Andy Tran/Desktop/GitHub/cs410/hw1/test.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/test.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/test.cpp$(DependSuffix): test.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/test.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/test.cpp$(DependSuffix) -MM test.cpp
 
-$(IntermediateDirectory)/hw1.cpp$(PreprocessSuffix): hw1.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/hw1.cpp$(PreprocessSuffix) hw1.cpp
+$(IntermediateDirectory)/test.cpp$(PreprocessSuffix): test.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/test.cpp$(PreprocessSuffix) test.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
