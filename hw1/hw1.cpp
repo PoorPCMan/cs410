@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+
 //using namespace std; //basically a class name signifier
 //if you use namespace std, it serves as a problem to deal with other namespaces
 //also futureproofs your code
@@ -32,17 +33,19 @@ int calciaf(int ssn) {
 
 //function to calculate the thickness of a lense, and returning its value
 
-int calcthicc(int lva, int rva, int k1ref, int k2money, int iaf, int ins) {
-    int thicc = 0;
-    thicc = (((lva)/(rva+k1ref)) + (5*k2money) + (iaf*ins)); 
-    return thicc; 
+int calcthicc(int lva, int rva, int k1ref, float k2money, int iaf, int ins) {
+    float thicc1 = static_cast<float>((lva)/(rva+k1ref));
+    float thicc2 = static_cast<float>((5*k2money) + (iaf*ins));
+    float thicc = thicc1 + thicc2; 
+//    std::cout << thicc << std::endl;
+    return static_cast<int> (thicc); 
 }
 
 int main(int argc, char **argv)
 {
     //declarations
     const int k1ref = 2;
-    const int k2money = 4.2;
+    const float k2money = 4.2;
     int thicc = 0;
     int lva = 0;
     int rva = 0;
@@ -67,8 +70,7 @@ int main(int argc, char **argv)
     std::cout << std::setw(24) << "thickness of lens: "
               << thicc
               << " cm" << std::endl;
-    std::cout << "Good luck with those glasses! And come back to see Dr. Nick!";
-
+    std::cout << "Good luck with those glasses! And come back to see Dr. Nick!" << std::endl;
     
     return 0;
 }
