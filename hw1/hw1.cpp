@@ -10,25 +10,31 @@
 RESTRICTIONS:
 
 - DO NOT use if/else statements (no conditionals)
- * solution? run each variable and check if its truly
+ * solution? run each variable and check if its truly that data type
 - thickness value should be ROUNDED DOWN to nearest integer value
 
 ==============================================================
 */
+
+//function to calculate the iaf, using two of the last two numbers of the social security number given to calculate it
+// -- incorporated the insurance variable into the equation (1 for yes 0 for no), as insurance decides whether or not iaf is included into the equation
+
 int calciaf(int ssn) {
     std::string sssn = std::to_string(ssn);
-    std::string iaf = sssn.substr(3,2);
-    int result = std::stoi(iaf);
-
+    std::string iaf1 = sssn.substr(2,1);
+    //std::cout << iaf1 << std::endl;
+    std::string iaf2 = sssn.substr(3,1);
+    //std::cout << iaf2 << std::endl;
+    int result = std::stoi(iaf1) + std::stoi(iaf2);
     return result;
     
 }
 
 //function to calculate the thickness of a lense, and returning its value
 
-int calcthicc(int lva, int rva, int k1ref, int k2money, int iaf) {
+int calcthicc(int lva, int rva, int k1ref, int k2money, int iaf, int ins) {
     int thicc = 0;
-    thicc = ((lva)/(rva+k1ref)) + (5*k2money) + iaf; 
+    thicc = (((lva)/(rva+k1ref)) + (5*k2money) + (iaf*ins)); 
     return thicc; 
 }
 
@@ -41,27 +47,27 @@ int main(int argc, char **argv)
     int lva = 0;
     int rva = 0;
     int iaf = 0;
-    int ins = 0;
+    bool ins = NULL;
     int ssn = 0;
 
     //body
-    std::cout << "You are using the LENS-O-MATIC program" << std::endl;
-    std::cout << "Enter: " << std::endl;
-    std::cout << std::setw(25) << "left visual acuity: ";
+    std::cout << "You are using the LENS-O-MATIC program" << std::endl
+              << "Enter: " << std::endl
+              << std::setw(25) << "left visual acuity: ";
     std::cin >> lva;
     //std::endl;
     std::cout << std::setw(26) << "right visual acuity: ";
     std::cin >> rva;
     std::cout << std::setw(10) << "ssn: ";
     std::cin >> ssn;
-    std::cout << std::setw(16) << "insurance: ";
+    std::cout << std::setw(33) << "insurance? (1=yes, 0 = no): ";
     std::cin >> ins;
     iaf = calciaf(ssn);
-    thicc = calcthicc(lva, rva, k1ref, k2money, iaf);
+    thicc = calcthicc(lva, rva, k1ref, k2money, iaf, ins);
     std::cout << std::setw(24) << "thickness of lens: "
               << thicc
               << " cm" << std::endl;
-    std::cout <<"Good luck with those glasses! And come back to see Dr. Nick!";
+    std::cout << "Good luck with those glasses! And come back to see Dr. Nick!";
 
     
     return 0;
