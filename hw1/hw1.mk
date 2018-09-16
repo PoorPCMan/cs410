@@ -5,8 +5,8 @@
 ## Debug
 ProjectName            :=hw1
 ConfigurationName      :=Debug
-WorkspacePath          :="C:/Users/Andy Tran/Documents/CS410"
-ProjectPath            :="C:/Users/Andy Tran/Documents/GitHub/cs410/hw1"
+WorkspacePath          :="C:/Users/Andy Tran/Desktop/GitHub/cs410"
+ProjectPath            :="C:/Users/Andy Tran/Desktop/GitHub/cs410/hw1"
 IntermediateDirectory  :=./Debug
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
@@ -94,7 +94,7 @@ PreBuild:
 ## Objects
 ##
 $(IntermediateDirectory)/hw1.cpp$(ObjectSuffix): hw1.cpp $(IntermediateDirectory)/hw1.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Andy Tran/Documents/GitHub/cs410/hw1/hw1.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/hw1.cpp$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Andy Tran/Desktop/GitHub/cs410/hw1/hw1.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/hw1.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/hw1.cpp$(DependSuffix): hw1.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/hw1.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/hw1.cpp$(DependSuffix) -MM hw1.cpp
 

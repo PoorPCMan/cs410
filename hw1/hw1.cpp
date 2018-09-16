@@ -61,7 +61,7 @@ int main(int argc, char **argv)
     std::cout << std::setw(24) << "thickness of lens: "
               << thicc
               << " cm" << std::endl;
-    std::cout << std::setw(50) << "Good luck with those glasses! And come back to see Dr. Nick!";
+    std::cout <<"Good luck with those glasses! And come back to see Dr. Nick!";
 
     
     return 0;
