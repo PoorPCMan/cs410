@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include <string>
 //using namespace std; //basically a class name signifier
 //if you use namespace std, it serves as a problem to deal with other namespaces
 //also futureproofs your code
@@ -14,6 +15,13 @@ RESTRICTIONS:
 
 ==============================================================
 */
+int calciaf(int ssn) {
+    std::string sssn = std::to_string(ssn);
+    std::string iaf = sssn.substr(3,2);
+    int result = std::stoi(iaf);
+    return result;
+    
+}
 
 //function to calculate the thickness of a lense, and returning its value
 
@@ -47,6 +55,7 @@ int main(int argc, char **argv)
     std::cin >> ssn;
     std::cout << std::setw(16) << "insurance: ";
     std::cin >> ins;
+    iaf = calcthicc(ssn);
     thicc = calcthicc(lva, rva, k1ref, k2money, iaf);
     std::cout << std::setw(24) << "thickness of lens: "
               << thicc
