@@ -19,6 +19,7 @@ int calciaf(int ssn) {
     std::string sssn = std::to_string(ssn);
     std::string iaf = sssn.substr(3,2);
     int result = std::stoi(iaf);
+
     return result;
     
 }
@@ -55,13 +56,12 @@ int main(int argc, char **argv)
     std::cin >> ssn;
     std::cout << std::setw(16) << "insurance: ";
     std::cin >> ins;
-    iaf = calcthicc(ssn);
+    iaf = calciaf(ssn);
     thicc = calcthicc(lva, rva, k1ref, k2money, iaf);
     std::cout << std::setw(24) << "thickness of lens: "
               << thicc
               << " cm" << std::endl;
     std::cout << std::setw(50) << "Good luck with those glasses! And come back to see Dr. Nick!";
-
 
     
     return 0;

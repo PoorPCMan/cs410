@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Project Name="hw1" Version="10.0.0" InternalType="Console">
+  <Reconciliation>
+    <Regexes/>
+    <Excludepaths/>
+    <Ignorefiles/>
+    <Extensions>
+      <![CDATA[*.cpp;*.c;*.h;*.hpp;*.xrc;*.wxcp;*.fbp]]>
+    </Extensions>
+    <Topleveldir>/Users/Andy Tran/Documents/GitHub/cs410/hw1</Topleveldir>
+  </Reconciliation>
   <Description/>
   <Dependencies/>
   <Settings Type="Executable">
@@ -94,6 +103,6 @@
   </Settings>
   <VirtualDirectory Name="src">
     <File Name="test.cpp" ExcludeProjConfig="Debug;"/>
-    <File Name="hw1.cpp" ExcludeProjConfig=""/>
+    <File Name="hw1.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>

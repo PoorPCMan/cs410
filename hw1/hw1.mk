@@ -5,8 +5,8 @@
 ## Debug
 ProjectName            :=hw1
 ConfigurationName      :=Debug
-WorkspacePath          :="C:/Users/Andy Tran/Desktop/GitHub/cs410"
-ProjectPath            :="C:/Users/Andy Tran/Desktop/GitHub/cs410/hw1"
+WorkspacePath          :="C:/Users/Andy Tran/Documents/CS410"
+ProjectPath            :="C:/Users/Andy Tran/Documents/GitHub/cs410/hw1"
 IntermediateDirectory  :=./Debug
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
@@ -15,8 +15,8 @@ CurrentFileFullPath    :=
 User                   :=Andy Tran
 Date                   :=15/09/2018
 CodeLitePath           :="C:/Program Files/CodeLite"
-LinkerName             :=C:/TDM-GCC-64/bin/g++.exe
-SharedObjectLinkerName :=C:/TDM-GCC-64/bin/g++.exe -shared -fPIC
+LinkerName             :=C:/MinGW/bin/g++.exe
+SharedObjectLinkerName :=C:/MinGW/bin/g++.exe -shared -fPIC
 ObjectSuffix           :=.o
 DependSuffix           :=.o.d
 PreprocessSuffix       :=.i
@@ -36,7 +36,7 @@ ObjectsFileList        :="hw1.txt"
 PCHCompileFlags        :=
 MakeDirCommand         :=makedir
 RcCmpOptions           := 
-RcCompilerName         :=C:/TDM-GCC-64/bin/windres.exe
+RcCompilerName         :=C:/MinGW/bin/windres.exe
 LinkOptions            :=  
 IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch). 
 IncludePCH             := 
@@ -49,13 +49,13 @@ LibPath                := $(LibraryPathSwitch).
 ## Common variables
 ## AR, CXX, CC, AS, CXXFLAGS and CFLAGS can be overriden using an environment variables
 ##
-AR       := C:/TDM-GCC-64/bin/ar.exe rcu
-CXX      := C:/TDM-GCC-64/bin/g++.exe
-CC       := C:/TDM-GCC-64/bin/gcc.exe
+AR       := C:/MinGW/bin/ar.exe rcu
+CXX      := C:/MinGW/bin/g++.exe
+CC       := C:/MinGW/bin/gcc.exe
 CXXFLAGS :=  -g -O0 -Wall $(Preprocessors)
 CFLAGS   :=  -g -O0 -Wall $(Preprocessors)
 ASFLAGS  := 
-AS       := C:/TDM-GCC-64/bin/as.exe
+AS       := C:/MinGW/bin/as.exe
 
 
 ##
@@ -94,7 +94,7 @@ PreBuild:
 ## Objects
 ##
 $(IntermediateDirectory)/hw1.cpp$(ObjectSuffix): hw1.cpp $(IntermediateDirectory)/hw1.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Andy Tran/Desktop/GitHub/cs410/hw1/hw1.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/hw1.cpp$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Andy Tran/Documents/GitHub/cs410/hw1/hw1.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/hw1.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/hw1.cpp$(DependSuffix): hw1.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/hw1.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/hw1.cpp$(DependSuffix) -MM hw1.cpp
 
