@@ -3,10 +3,10 @@
 ## any manual changes will be erased      
 ##
 ## Debug
-ProjectName            :=hw1
+ProjectName            :=hw2
 ConfigurationName      :=Debug
 WorkspacePath          :="C:/Users/Andy Tran/Documents/CS410"
-ProjectPath            :="C:/Users/Andy Tran/Documents/GitHub/cs410/hw1"
+ProjectPath            :="C:/Users/Andy Tran/Documents/GitHub/cs410/hw2"
 IntermediateDirectory  :=./Debug
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
@@ -32,7 +32,7 @@ Preprocessors          :=
 ObjectSwitch           :=-o 
 ArchiveOutputSwitch    := 
 PreprocessOnlySwitch   :=-E
-ObjectsFileList        :="hw1.txt"
+ObjectsFileList        :="hw2.txt"
 PCHCompileFlags        :=
 MakeDirCommand         :=makedir
 RcCmpOptions           := 
@@ -62,7 +62,7 @@ AS       := C:/MinGW/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/hw1.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/hw2.cpp$(ObjectSuffix) 
 
 
 
@@ -93,13 +93,13 @@ PreBuild:
 ##
 ## Objects
 ##
-$(IntermediateDirectory)/hw1.cpp$(ObjectSuffix): hw1.cpp $(IntermediateDirectory)/hw1.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Andy Tran/Documents/GitHub/cs410/hw1/hw1.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/hw1.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/hw1.cpp$(DependSuffix): hw1.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/hw1.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/hw1.cpp$(DependSuffix) -MM hw1.cpp
+$(IntermediateDirectory)/hw2.cpp$(ObjectSuffix): hw2.cpp $(IntermediateDirectory)/hw2.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Andy Tran/Documents/GitHub/cs410/hw2/hw2.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/hw2.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/hw2.cpp$(DependSuffix): hw2.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/hw2.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/hw2.cpp$(DependSuffix) -MM hw2.cpp
 
-$(IntermediateDirectory)/hw1.cpp$(PreprocessSuffix): hw1.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/hw1.cpp$(PreprocessSuffix) hw1.cpp
+$(IntermediateDirectory)/hw2.cpp$(PreprocessSuffix): hw2.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/hw2.cpp$(PreprocessSuffix) hw2.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

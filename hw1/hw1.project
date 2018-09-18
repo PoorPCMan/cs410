@@ -105,4 +105,6 @@
     <File Name="test.cpp" ExcludeProjConfig="Debug;"/>
     <File Name="hw1.cpp"/>
   </VirtualDirectory>
+  <Dependencies Name="Debug"/>
+  <Dependencies Name="Release"/>
 </CodeLite_Project>
