@@ -7,7 +7,7 @@ std::string getInput() {
     std::string input;
     std::cin >> input;
     while(!(input == "y" || input == "n")) {
-        std::cout << input <<std::endl;
+        //std::cout << input <<std::endl;
         std::cout << "The entered answer is not y(yes) or n(no). Please enter (y/n)." << std::endl;
         std::cin >> input;
     }
@@ -24,7 +24,8 @@ int startPrompt() {
     std::string input;
     std::cout << "Muscle tendon related? (y/n): " << std::endl;
     input = getInput();
-    if (input == "y") {
+    if (input == "y") { //yes branch
+        std::cout<<"Achilles?"<<std::endl;
     	input = getInput();
     	if (input == "y") { //yes to achilles
     	    std::cout<< "Pad heel of sneaker, ice and heat for inflammation" << std::endl;
@@ -69,7 +70,7 @@ int startPrompt() {
     	        }
     	    }
     	}
-    } else { // no branch
+    } else { //no branch
         std::cout<<"Back pain?"<<std::endl;
         input = getInput();
         if(input == "y") { //yes for backpain
@@ -91,7 +92,7 @@ int startPrompt() {
         if(input == "n") { //no for backpain
             std::cout<<"Hip pain?"<<std::endl;
             input = getInput();
-            if(input == "n") } { //no to hip pain
+            if(input == "n") { //no to hip pain
                 std::cout<<"Knee pain?"<<std::endl;
                 input = getInput();
                 if(input == "n") { //no to knee pain
@@ -111,7 +112,8 @@ int startPrompt() {
                                 } else { //no to taping
                                     std::cout<<"Try taping, plenty YouTube tutorials"<<std::endl;
                                 }
-                            } 
+                            }
+                        
                             
                             if(input == "n") { //no to ankle sprain
                                 std::cout<<"Foot pain?"<<std::endl;
@@ -141,12 +143,7 @@ int startPrompt() {
                 std::cout<<"Try floor exercises to open hip joint, general stretching"<<std::endl;
             }
         }
-            
     }
-    return 0;
-}
-
-int rePrompt() {
     std::cout << "You've reached the end of the program!"
               << "Would you like to start over? (y/n): " << std::endl;
     std::string uinput = getInput();
@@ -158,8 +155,20 @@ int rePrompt() {
     return 0;
 }
 
-int main(int argc, char **argv)
-{
+
+//int rePrompt() {
+//    std::cout << "You've reached the end of the program!"
+//              << "Would you like to start over? (y/n): " << std::endl;
+//    std::string uinput = getInput();
+//    if (uinput == "y") {
+//        startPrompt();
+//    } else {
+//        std::cout<< "Good bye! Come again!" << std::endl;
+//    }
+//    return 0;
+//}
+
+int main(int argc, char **argv) {
     startPrompt();
 	return 0;
 }

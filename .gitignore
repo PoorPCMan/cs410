@@ -36,3 +36,8 @@ hw2/hw2.project
 Makefile
 hw2/hw2.mk
 .codelite/cs410.tags
+.codelite/.tern-port
+.codelite/cs410.tags
+.codelite/refactoring.db
+hw2/Debug/hw2.cpp.o
+hw2/Debug/hw2.exe
