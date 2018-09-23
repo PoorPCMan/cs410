@@ -24,7 +24,7 @@ int startPrompt() {
     std::string input;
     std::cout << "Muscle tendon related? (y/n): " << std::endl;
     input = getInput();
-    if (uinput == "y") {
+    if (input == "y") {
     	input = getInput();
     	if (input == "y") { //yes to achilles
     	    std::cout<< "Pad heel of sneaker, ice and heat for inflammation" << std::endl;
@@ -69,8 +69,79 @@ int startPrompt() {
     	        }
     	    }
     	}
-    } else { // user input is n (NO)
-        branchB();
+    } else { // no branch
+        std::cout<<"Back pain?"<<std::endl;
+        input = getInput();
+        if(input == "y") { //yes for backpain
+            std::cout<<"Tight while running?"<<std::endl;
+            input = getInput();
+            if(input == "n") {
+                std::cout<<"Spasms, leg burn?"<<std::endl;
+                input = getInput();
+                if(input == "y") { //yes to spasms
+                    std::cout<<"Lower disc problem, sciatica. Buy new soft sneakers, inserts"<<std::endl;
+                } else { //no to spasms
+                    std::cout<<"Arm, neck (numbness, pain) after running, try neck exercises, general back rehab"<<std::endl;
+                }
+            } else { //yes for tight while running
+                std::cout<<"Strengthen abdominal muscles, stretch well before running"<<std::endl;
+            }
+        }
+        
+        if(input == "n") { //no for backpain
+            std::cout<<"Hip pain?"<<std::endl;
+            input = getInput();
+            if(input == "n") } { //no to hip pain
+                std::cout<<"Knee pain?"<<std::endl;
+                input = getInput();
+                if(input == "n") { //no to knee pain
+                    std::cout<<"Dizzy, balance?"<<std::endl;
+                    input = getInput();
+                    if(input == "n"){ //no to dizzy
+                        std::cout<<"Side cramp?"<<std::endl;
+                        input = getInput();
+                        if(input == "n") { //no to side cramp
+                            std::cout<<"Ankle sprain?"<<std::endl;
+                            input = getInput();
+                            if(input == "y") { //yes to ankle sprain
+                                std::cout<<"Taping?"<<std::endl;
+                                input = getInput();
+                                if(input == "y") { // yes to taping
+                                    std::cout<<"Takes time, bruising should change color and fade within days"<<std::endl;
+                                } else { //no to taping
+                                    std::cout<<"Try taping, plenty YouTube tutorials"<<std::endl;
+                                }
+                            } 
+                            
+                            if(input == "n") { //no to ankle sprain
+                                std::cout<<"Foot pain?"<<std::endl;
+                                input = getInput();
+                                if(input == "y") { //yes to foot pain
+                                    std::cout<<"Toes, ball?"<<std::endl;
+                                    input = getInput();
+                                    if(input == "y") {
+                                        std::cout<<"Tight sneakers and broken toes, stone in shoe feeling from inside ball of foot"<<std::endl;
+                                    } else { //no to toes ball
+                                        std::cout<<"Heel bruised or bone, ligaments midfoot"<<std::endl;
+                                    }
+                                } else { //no to foot pain
+                                    std::cout<<"Try another flow chart :("<<std::endl;
+                                }
+                            }
+                        } else { //yes to side cramp
+                            std::cout<<"Fluids, endurance, unrelated intestinal or internal issues"<<std::endl;
+                        }
+                    } else { //yes to dizzy
+                        std::cout<<"Heat, hydration, illness, unrelated vision or ear problems"<<std::endl;
+                    }
+                } else { //yes to knee pain
+                    std::cout<<"Brace if needed (hard to give up later), rehab exercises"<<std::endl;
+                }
+            } else { //yes to hip pain
+                std::cout<<"Try floor exercises to open hip joint, general stretching"<<std::endl;
+            }
+        }
+            
     }
     return 0;
 }
