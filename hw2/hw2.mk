@@ -5,15 +5,15 @@
 ## Debug
 ProjectName            :=hw2
 ConfigurationName      :=Debug
-WorkspacePath          :="C:/Users/Andy Tran/Desktop/GitHub/cs410"
-ProjectPath            :="C:/Users/Andy Tran/Desktop/GitHub/cs410/hw2"
+WorkspacePath          :="C:/Users/Andy Tran/Documents/CS410"
+ProjectPath            :="C:/Users/Andy Tran/Documents/GitHub/cs410/hw2"
 IntermediateDirectory  :=./Debug
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Andy Tran
-Date                   :=23/09/2018
+Date                   :=25/09/2018
 CodeLitePath           :="C:/Program Files/CodeLite"
 LinkerName             :=C:/MinGW/bin/g++.exe
 SharedObjectLinkerName :=C:/MinGW/bin/g++.exe -shared -fPIC
@@ -94,7 +94,7 @@ PreBuild:
 ## Objects
 ##
 $(IntermediateDirectory)/hw2.cpp$(ObjectSuffix): hw2.cpp $(IntermediateDirectory)/hw2.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Andy Tran/Desktop/GitHub/cs410/hw2/hw2.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/hw2.cpp$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Andy Tran/Documents/GitHub/cs410/hw2/hw2.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/hw2.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/hw2.cpp$(DependSuffix): hw2.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/hw2.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/hw2.cpp$(DependSuffix) -MM hw2.cpp
 

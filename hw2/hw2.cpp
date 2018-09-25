@@ -19,41 +19,41 @@ int startPrompt() {
 	std::cout << "Hi! Welcome to the Bone/Muscular Issues Program!\n"
               << "What's your name?" << std::endl;
     std::cin >> name; 
-    std::cout << "Hello " << name << std::endl;
+    std::cout << "Hello " << name << "!" << std::endl;
     std::cout << "Is your pain..." << std::endl;
     std::string input;
     std::cout << "Muscle tendon related? (y/n): " << std::endl;
     input = getInput();
     if (input == "y") { //yes branch
-        std::cout<<"Achilles?"<<std::endl;
+        std::cout<<"Achilles? (y/n):"<<std::endl;
     	input = getInput();
     	if (input == "y") { //yes to achilles
     	    std::cout<< "Pad heel of sneaker, ice and heat for inflammation" << std::endl;
     	}
     	//defaulting to a separate if statement instead of an else is neater
     	if(input == "n") { //no to achilles
-    	    std::cout<< "Shin splints?" << std::endl;
+    	    std::cout<< "Shin splints? (y/n):" << std::endl;
     	    input = getInput();
     	    if(input == "y") { //yes to shin splints
     	        std::cout<< "Balance muscles, stretching, pace, sneakers."<<std::endl;
     	    } else { // no to shin splints
-    	        std::cout<<"Cramping Calves?"<<std::endl;
+    	        std::cout<<"Cramping Calves? (y/n):"<<std::endl;
     	        input = getInput();
     	        if(input == "y") {//no to calves
     	            std::cout<<"Hydration, nutrition, overuse, sneakers too soft, running style"<<std::endl;
     	        } else {
-    	            std::cout<<"Muscle fatigue?"<<std::endl;
+    	            std::cout<<"Muscle fatigue? (y/n):"<<std::endl;
     	            input = getInput();
     	            if(input == "y") { //yes to muscle fatigue
     	                std::cout<<"Time of day, general overwork, diet, stress, illness"<<std::endl;
     	            } else { // no to muscle fatigue
-    	                std::cout<<"Full leg spasm?"<<std::endl;
+    	                std::cout<<"Full leg spasm? (y/n):"<<std::endl;
     	                input = getInput();
     	                if(input == "n") { // no to leg spasm
-    	                    std::cout<<"Foot (arch) cramps?"<<std::endl;
+    	                    std::cout<<"Foot (arch) cramps? (y/n):"<<std::endl;
     	                    input = getInput();
     	                    if(input == "n") { // no to foot arch cramps
-    	                        std::cout<<"Groin strain?"<<std::endl;
+    	                        std::cout<<"Groin strain? (y/n):"<<std::endl;
     	                        input = getInput();
     	                        if(input == "y") { //yes to groin strain
     	                            std::cout<<"Rest, then stretching"<<std::endl;
@@ -71,13 +71,13 @@ int startPrompt() {
     	    }
     	}
     } else { //no branch
-        std::cout<<"Back pain?"<<std::endl;
+        std::cout<<"Back pain? (y/n):"<<std::endl;
         input = getInput();
         if(input == "y") { //yes for backpain
-            std::cout<<"Tight while running?"<<std::endl;
+            std::cout<<"Tight while running? (y/n):"<<std::endl;
             input = getInput();
             if(input == "n") {
-                std::cout<<"Spasms, leg burn?"<<std::endl;
+                std::cout<<"Spasms, leg burn? (y/n):"<<std::endl;
                 input = getInput();
                 if(input == "y") { //yes to spasms
                     std::cout<<"Lower disc problem, sciatica. Buy new soft sneakers, inserts"<<std::endl;
@@ -90,22 +90,22 @@ int startPrompt() {
         }
         
         if(input == "n") { //no for backpain
-            std::cout<<"Hip pain?"<<std::endl;
+            std::cout<<"Hip pain? (y/n):"<<std::endl;
             input = getInput();
             if(input == "n") { //no to hip pain
-                std::cout<<"Knee pain?"<<std::endl;
+                std::cout<<"Knee pain? (y/n):"<<std::endl;
                 input = getInput();
                 if(input == "n") { //no to knee pain
-                    std::cout<<"Dizzy, balance?"<<std::endl;
+                    std::cout<<"Dizzy, balance? (y/n):"<<std::endl;
                     input = getInput();
                     if(input == "n"){ //no to dizzy
-                        std::cout<<"Side cramp?"<<std::endl;
+                        std::cout<<"Side cramp? (y/n):"<<std::endl;
                         input = getInput();
                         if(input == "n") { //no to side cramp
-                            std::cout<<"Ankle sprain?"<<std::endl;
+                            std::cout<<"Ankle sprain? (y/n):"<<std::endl;
                             input = getInput();
                             if(input == "y") { //yes to ankle sprain
-                                std::cout<<"Taping?"<<std::endl;
+                                std::cout<<"Taping? (y/n):"<<std::endl;
                                 input = getInput();
                                 if(input == "y") { // yes to taping
                                     std::cout<<"Takes time, bruising should change color and fade within days"<<std::endl;
@@ -116,10 +116,10 @@ int startPrompt() {
                         
                             
                             if(input == "n") { //no to ankle sprain
-                                std::cout<<"Foot pain?"<<std::endl;
+                                std::cout<<"Foot pain? (y/n):"<<std::endl;
                                 input = getInput();
                                 if(input == "y") { //yes to foot pain
-                                    std::cout<<"Toes, ball?"<<std::endl;
+                                    std::cout<<"Toes, ball? (y/n):"<<std::endl;
                                     input = getInput();
                                     if(input == "y") {
                                         std::cout<<"Tight sneakers and broken toes, stone in shoe feeling from inside ball of foot"<<std::endl;
@@ -144,7 +144,7 @@ int startPrompt() {
             }
         }
     }
-    std::cout << "You've reached the end of the program!"
+    std::cout << "You've reached the end of the program!\n"
               << "Would you like to start over? (y/n): " << std::endl;
     std::string uinput = getInput();
     if (uinput == "y") {
