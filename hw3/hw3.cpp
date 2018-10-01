@@ -108,6 +108,7 @@ std::string changeDirection(std::string orientation, std::string dir) {
 //simulation function
 int main(int argc, char **argv)
 {
+    int linecheck = 0;
     int office; //counter value for amounts of time to hit nick
     int home; //counter value for amounts of time to hit home
     int lost; //counter value for amounts of time to hit lost
@@ -121,12 +122,14 @@ int main(int argc, char **argv)
     int cordx = 0;
     int cordy = 0;
     //orientation and distrance travelled
-    std::string orientation = "up";
-    int disttraveled = iniDist;
+    std::string orientation = "right";
+    int disttraveled = 0;
     int homepoints = 0; //number of decision points that are near home
-        for(int j = 1; j < dMax; j++) { //loop for one walk to make decisions inside of
-            nDist = distnext(iniDist);
-            
+    int dist = iniDist;
+    int j = 0;
+        while(j < dMax) { //loop for one walk to make decisions inside of
+            nDist = distnext(dist);
+            dist = nDist; //save the last number to calculate the next number
             //turning left or right
             if(j % 7 == 0) {
                 //moves left
@@ -152,28 +155,32 @@ int main(int argc, char **argv)
             if((orientation == "down")) {
                 cordy -= nDist;
             }
-            
             if(j == dMax) { //checks if it's at the end of the for loop and increments the counter
                 lost++;
                 DistOut(disttraveled, "lost");
+                linecheck++;
                 break;
             }
             
-            if((findDistance(cordx, cordy, officex, officey) <= 500)) { //checks if within 500 feet of Nick's office and increment counter
+            if((findDistance(officex, officey, cordx, cordy) <= 500)) { //checks if within 500 feet of Nick's office and increment counter
                 office++;
                 DistOut(disttraveled, "office");
+                linecheck++;
                 break;
             }
             
-            if((findDistance(cordx, cordy, homex, homey) <= 50)) { //checks if distance from current location to home is within 50
+            if((findDistance(homex, homey, cordx, cordy) <= 50)) { //checks if distance from current location to home is within 50
                 homepoints++;
-                if((findDistance(cordx, cordy, homex, homey) <= 50) && (homepoints >= 5)) {
+                if((homepoints >= 5)) {
                     home++;
                     DistOut(disttraveled, "home");
+                    linecheck++;
                     break;
                 }
             }
+            j++;
         }
+        
         iniDist++;//increment for the next run ex: 21 for 1st walk, 22 for 2nd walk, 23, for 3rd walk...
     }
     finishstats(office, home, lost);
