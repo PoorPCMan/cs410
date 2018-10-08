@@ -58,12 +58,12 @@ int main(int argc, char **argv)
                 done2 = 1;
     	        break;
     	    case '3': //naptime -- gets hoursSleep and minNap
-                if((done1 == 0) && (done2 == 0)) {
+                if((done1 == 0) || (done2 == 0)) {
                     std::cout<<"Cannot proceed with option 3! You must do both Option 1 and 2!"<<std::endl;
-                    if(done1 == 0) {
+                    if(done1 != 1) {
                         std::cout<<"Option 1 is not done yet."<<std::endl;
                     }
-                    if(done2 == 0) {
+                    if(done2 != 1) {
                         std::cout<<"Option 2 is not done yet."<<std::endl;
                     }
                 } else {
