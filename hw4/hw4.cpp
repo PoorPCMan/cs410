@@ -22,31 +22,62 @@ int main(int argc, char **argv)
 {
     //info
     int legs = 0;
+    int steps = 0;
     int anxiety = 0;
     int dotw = 0;
+    int numPills = 0;
+    int hoursSleep = 0; //hours of sleep
+    int minNap = 0; //minutes to nap for
+    int calories = 0;
     
-    //order locks
+    //option order locks -- used to signify when option 1/2 are done before option 3 and other situations like that
     int done1 = 0;
+    int done2 = 0;
+    
     //program start
     greeting();
     
     int quit = 0;
     while(quit == 0) { //loop until the quit lock turns true
     
+        std::cout<<"------------------------"<<std::endl; //spacer       
+ 
         char options = displaymenu();
         
     	switch(options) {
-    	    case '1': //taking a walk
-    	        std::cout<<"Case1"<<std::endl;
+    	    case '1': //taking a walk -- gets legs and steps
+                legs = asklegs();
+                steps = totalSteps(legs);
+                done1 = 1;
     	        break;
-    	    case '2': //your medications
-    	        std::cout<<"Case2"<<std::endl;
+    	    case '2': //your medications -- gets anxiety, dotw, and numpills
+    	        anxiety = askAnxiety();
+                dotw = askDay();
+                numPills = getPills(anxiety, dotw);
+                printPills(numPills);
+                done2 = 1;
     	        break;
-    	    case '3': //naptime
-    	        std::cout<<"Case3"<<std::endl;
+    	    case '3': //naptime -- gets hoursSleep and minNap
+                if((done1 == 0) && (done2 == 0)) {
+                    std::cout<<"Cannot proceed with option 3! You must do both Option 1 and 2!"<<std::endl;
+                    if(done1 == 0) {
+                        std::cout<<"Option 1 is not done yet."<<std::endl;
+                    }
+                    if(done2 == 0) {
+                        std::cout<<"Option 2 is not done yet."<<std::endl;
+                    }
+                } else {
+                    hoursSleep = askSleep();
+                    minNap = min4Nap(hoursSleep, steps, numPills);
+                    printNaptime(minNap);
+                }
     	        break;
     	    case '4': //caloric intake
-    	        std::cout<<"Case4"<<std::endl;
+                if(done1 == 0) {
+                    std::cout<<"Cannot proceed with option 4! You must do Option 1!"<<std::endl;
+                }
+    	        calories = getCalories(steps);
+                printCalories(calories);
     	        break;
     	    case '5': //quit
     	        std::cout<<"Thank you for using the program. Have a nice day!"<<std::endl;
@@ -88,7 +119,7 @@ char displaymenu() {
 
 int asklegs() {
     int legs;
-    std::cout<<"Please give the amount of legs you walk with: "<<std::endl;
+    std::cout<<"Please give the amount of legs you walk with: ";
     std::cin>>legs;
     
     while(legs == 0 && legs < 0) { //input checking/clenasing
@@ -100,7 +131,7 @@ int asklegs() {
 }
 
 
-//helper function that recursively finds the factorial of a number
+//relatively simple helper function that recursively finds the factorial of a number
 int factorial(int n) {
     if (n >= 1) {
         return n*factorial(n-1);
@@ -111,17 +142,21 @@ int factorial(int n) {
 //Detail 4
 //function that gives the total steps
 int totalSteps(int legs) {
-    return factorial(legs);
+    int steps = factorial(legs);
+    std::cout<<"The total amount of steps taken with your amount of legs is "
+             <<steps
+             <<" steps." <<std::endl;
+    return steps;
 }
 
 //Detail 5
 int askAnxiety() {
     int anxiety;
-    std::cout<<"What's your anxiety level? (1-10): "<<std::endl;
+    std::cout<<"What's your anxiety level? (1-10): ";
     std::cin>>anxiety;
     while(anxiety < 1 || anxiety > 10) {
         std::cout<<"Unexpected reply. Please pick and choose an anxiety level from 1 to 10." <<std::endl;
-        std::cout<<"What's your anxiety level? (1-10): "<<std::endl;
+        std::cout<<"What's your anxiety level? (1-10): ";
         std::cin>>anxiety;
     }
     return anxiety;
@@ -130,7 +165,7 @@ int askAnxiety() {
 //Detail 6
 int askDay() {
     int day;
-    std::cout<<"Please give the day (1-7):"<<std::endl;
+    std::cout<<"Please give the day (1-7):";
     std::cin>>day;
     while(day < 1 || day > 7) {
         std::cout<<"Unexpected reply. Please pick and choose a day from 1(Monday) to 7(Sunday)." <<std::endl;
@@ -151,7 +186,7 @@ int getPills(int anxiety, int day) {
 
 //Detail 8
 int printPills(int numPills) {
-    std::cout<<"The amount of pills you need are "
+    std::cout<<"The amount of pills you need for today are "
              <<numPills
              <<" pills." <<std::endl;
     return 0;
