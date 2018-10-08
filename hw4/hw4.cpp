@@ -75,8 +75,10 @@ int main(int argc, char **argv)
     	    case '4': //caloric intake
                 if(done1 == 0) {
                     std::cout<<"Cannot proceed with option 4! You must do Option 1!"<<std::endl;
+                } else {
+                    calories = getCalories(steps);
+                    printCalories(calories);
                 }
-    	        calories = getCalories(steps);
                 printCalories(calories);
     	        break;
     	    case '5': //quit
@@ -266,5 +268,4 @@ int printCalories(int calories) {
 }
 //email TA 
 //benjamin.kwapong001@umb.edu
-
 //richard.anarfi001@umb.edu
