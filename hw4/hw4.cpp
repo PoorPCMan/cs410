@@ -91,8 +91,6 @@ int main(int argc, char **argv)
     }
 }
 
-
-
 //Detail 1
 int greeting() {
     std::cout<< "Hey, welcome to the program!" << std::endl;
@@ -166,7 +164,7 @@ int askAnxiety() {
 //Detail 6
 int askDay() {
     int day;
-    std::cout<<"Please give the day (1-7):";
+    std::cout<<"Please give the day (1-7): ";
     std::cin>>day;
     while(day < 1 || day > 7) {
         std::cout<<"Unexpected reply. Please pick and choose a day from 1(Monday) to 7(Sunday)." <<std::endl;
@@ -268,7 +266,7 @@ float getCalories(int steps){
 
 //Detail 13
 int printCalories(int calories) {
-    std::cout<<"Your calorie limit is "
+    std::cout<<"Your calorie intake is "
              <<calories
              <<" calories." <<std::endl;
     return 0;
