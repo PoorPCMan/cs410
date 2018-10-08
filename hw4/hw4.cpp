@@ -2,8 +2,8 @@
 #include <cmath>
 
 //declarations
-int greeting(); //greeting
-int displaymenu();
+int greeting(); 
+char displaymenu();
 int asklegs();
 int factorial(int n);
 int totalSteps(int legs);
@@ -17,31 +17,39 @@ int printNaptime(int min);
 int getCalories(int steps);
 int printCalories(int calories);
 
+//body
 int main(int argc, char **argv)
 {
     //info
     int legs = 0;
     int anxiety = 0;
     int dotw = 0;
+    
+    //order locks
+    int done1 = 0;
+    //program start
     greeting();
     
     int quit = 0;
     while(quit == 0) { //loop until the quit lock turns true
-    	switch(displaymenu()) {
-    	    case 1: //taking a walk
+    
+        char options = displaymenu();
+        
+    	switch(options) {
+    	    case '1': //taking a walk
     	        std::cout<<"Case1"<<std::endl;
     	        break;
-    	    case 2: //your medications
+    	    case '2': //your medications
     	        std::cout<<"Case2"<<std::endl;
     	        break;
-    	    case 3: //naptime
+    	    case '3': //naptime
     	        std::cout<<"Case3"<<std::endl;
     	        break;
-    	    case 4: //caloric intake
+    	    case '4': //caloric intake
     	        std::cout<<"Case4"<<std::endl;
     	        break;
-    	    case 5: //quit
-    	        std::cout<<"Thank you for using the program. Have a nice day!";
+    	    case '5': //quit
+    	        std::cout<<"Thank you for using the program. Have a nice day!"<<std::endl;
     	        quit = 1;
     	        break;
             default:
@@ -50,14 +58,17 @@ int main(int argc, char **argv)
     	}   
     }
 }
+
+
+
 //Detail 1
 int greeting() {
     std::cout<< "Hey, welcome to the program!" << std::endl;
     return 0;
 }
 //Detail 2
-int displaymenu() {
-    int state;
+char displaymenu() {
+    char state;
     
     std::cout<<"Health-o-Matic Options"<< std::endl;
     std::cout<<"------------------------"<<std::endl;
