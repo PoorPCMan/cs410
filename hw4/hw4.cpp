@@ -14,7 +14,7 @@ int printPills(int numPills);
 int askSleep();
 int min4Nap(int hours, int steps, int numPills);
 int printNaptime(int min); 
-int getCalories(int steps);
+float getCalories(int steps);
 int printCalories(int calories);
 
 //body
@@ -79,7 +79,6 @@ int main(int argc, char **argv)
                     calories = getCalories(steps);
                     printCalories(calories);
                 }
-                printCalories(calories);
     	        break;
     	    case '5': //quit
     	        std::cout<<"Thank you for using the program. Have a nice day!"<<std::endl;
@@ -171,7 +170,7 @@ int askDay() {
     std::cin>>day;
     while(day < 1 || day > 7) {
         std::cout<<"Unexpected reply. Please pick and choose a day from 1(Monday) to 7(Sunday)." <<std::endl;
-        std::cout<<"Please give the day (1-7): "<<std::endl;
+        std::cout<<"Please give the day (1-7): ";
         std::cin>>day;
     }
     return day;
@@ -225,9 +224,9 @@ int printNaptime(int min) {
 }
 
 //Detail 12
-int getCalories(int steps){
-    int weight;
-    std::cout<<"How much do you weigh? ";
+float getCalories(int steps){
+    int weight; //in lbs
+    std::cout<<"How much do you weigh? (lbs): ";
     std::cin>>weight;
     
     while(weight > 800 || weight < 0) {
@@ -237,25 +236,33 @@ int getCalories(int steps){
     }
     
     
-    int height;
-    std::cout<<"How tall are you?: ";
+    int height; //in inches
+    std::cout<<"How tall are you (in inches)?: ";
     std::cin>>height;
     
-    //dunno what to measure height in
-    //while() {
-    //    
-    //}
+    // 0 to 8.925 ft
+    // there are midgets
+    // tallest guy in the world is 8.925 ft = 107.1 inches (he's dead)
+    // anythings possible!
+    while(height < 0 || height > 107) {
+        std::cout<<"Not accepted height. Please put a height in inches up to 107 inches."<<std::endl;
+        std::cout<<"How tall are you? ";
+        std::cin>>height;
+    }
     
-    int temp;
-    std::cout<<"What temperature is the room at?: ";
+    float temp; //in Fahrenheight
+    std::cout<<"What temperature is the room at? (Fahrenheit): ";
     std::cin>>temp;
     
-    //temperature can be up and down the range of an integer so don't really need to check
-    //while(temperature < 0 || ) {
-    //    
-    //}
+    //Don't really need to check temperature in my opinion... It really does go up and down, but to make it
+    //cleaner, just limit the temperature from 0-100 degrees
+    while(temp < 0 || temp > 100) {
+        std::cout<<"Not accepted temperature. Please put a in between 0-100 degrees (Fahrenheit)"<<std::endl;
+        std::cout<<"What temperature is the room at?: ";
+        std::cin>>temp;
+    }
     
-    int calories = (6 * weight) + (2 * height) + (1/temp) + (steps);
+    float calories = (6 * weight) + (2 * height) + (1/temp) + (steps);
     return calories;
 }
 
