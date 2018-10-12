@@ -7,9 +7,9 @@ Made solutions publicly available as a way for people to learn from my mistakes.
 
 HW1[DONE/Grade: 90%]: Mostly simple, but I guess I should've used more simpler functions. I had points penalized for not following the homework's instructions and compiling with C++11.
 
-HW2[DONE/Grade: ???]
+HW2[DONE/Grade: 100%]
 
-HW3[INCOMPLETE/Grade: ???]
+HW3[INCOMPLETE/Grade: 75%]
 
 HW4[DONE/Grade: ???]
 
