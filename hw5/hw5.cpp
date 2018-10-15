@@ -50,11 +50,12 @@ int main(int argc, char **argv) {
                          <<c4 <<std::endl;
                 break;
     	    case '5': // Hyperbolic sine of x
-                terms = expTerms();
                 x = askX(5);
+                terms = expTerms();
+                
                 e1 = exponential(x, terms);
-                e2 = exponential(-x, terms);
-                c5 = sinh(e1, e2);
+                e2 = 1/e1;
+                c5 = (e1 + e2)/2;
                 std::cout<<"Hyperbolic sine of "
                          <<x
                          <<" is "

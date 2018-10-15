@@ -12,6 +12,5 @@ int expTerms();
 float exponential(int x, int terms);
 int cosine(int x);
 int nroot(int x, int n);
-int sinh(float x, float y);
 
 #endif

@@ -35,6 +35,7 @@ int askX(int choice) {
                 std::cin >> x;
             }
             break;
+        //case 2 allows all X's
         case 3:
             while (x) {
                 
@@ -45,11 +46,7 @@ int askX(int choice) {
                 
             }
             break;
-        case 5:
-            while(x) {
-                
-            }
-            break;
+        //case 5 allows all X's
     }
     return x;
 }
@@ -122,7 +119,3 @@ int nroot(int x, int n) {
 
 
 //option 5
-int sinh(float x, float y) {
-    int results = (x - y)/2;
-    return results;
-}
