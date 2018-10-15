@@ -53,7 +53,7 @@ int main(int argc, char **argv) {
                 terms = expTerms();
                 x = askX(5);
                 e1 = exponential(x, terms);
-                e2 = exponential(-(x), terms);
+                e2 = exponential(-x, terms);
                 c5 = sinh(e1, e2);
                 std::cout<<"Hyperbolic sine of "
                          <<x
