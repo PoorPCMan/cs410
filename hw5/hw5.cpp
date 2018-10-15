@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include "Calculator.h"
 //#include <cmath> --not allowed to use
 
@@ -7,7 +8,7 @@ int main(int argc, char **argv) {
     //Data
     int running = 1;
     int x;
-    int terms;
+    int terms, acc, root;
     int c1;
     float c2, c3, c4, c5;
     float e1, e2;
@@ -35,15 +36,18 @@ int main(int argc, char **argv) {
                 break;
     	    case '3': // Cosine of x
                 x = askX(3);
-
+                acc = cosAcc();
+                c3 = cosine(x, acc);
                 std::cout<<"Cosine of "
                          <<x
                          <<" is "
+                         << std::setprecision(8)
                          <<c3 <<std::endl;
                 break;
     	    case '4': // Roots of x
                 x = askX(4);
-
+                root = findRoot();
+                c4 = getRoot(x, root);
                 std::cout<<"Roots of "
                          <<x
                          <<" is "

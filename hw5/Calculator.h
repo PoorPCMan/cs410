@@ -10,7 +10,9 @@ int factorial(int n);
 int helppower(int x, int y);
 int expTerms();
 float exponential(int x, int terms);
-int cosine(int x);
-int nroot(int x, int n);
+float cosine(int x, int accuracy);
+int cosAcc();
+int findRoot();
+int getRoot(int x, int n);
 
 #endif

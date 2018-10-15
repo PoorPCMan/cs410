@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include "Calculator.h"
 
 
@@ -36,17 +37,10 @@ int askX(int choice) {
             }
             break;
         //case 2 allows all X's
-        case 3:
-            while (x) {
-                
-            }
-            break;
-        case 4:
-            while (x) {
-                
-            }
-            break;
+        //case 3 allows all X's
+        //case 4 allows all x's
         //case 5 allows all X's
+        //TODO: Refactor this switch statement and main func
     }
     return x;
 }
@@ -85,37 +79,72 @@ int expTerms() {
 
 //option 2 --works now
 float exponential(int x, int terms) {
-    float sum = 0;
+    float sum = 1.0;
 
-    for(int i = 0; i < terms; i++) {
+    for(int i = 1; i <= terms; i++) {
         //int step1 = x^i; -> CANT USE - in C++ "^" is a bitwise OR usually would use cmath's pow method, but we can just loop it
         int numerator = helppower(x, i);
-        std::cout<<numerator<<std::endl;
+        //std::cout<<numerator<<std::endl;
         int denominator = factorial(i);
-        std::cout<<denominator<<std::endl;
-        sum += static_cast<float>(numerator/denominator);
+        //std::cout<<denominator<<std::endl;
+        sum += static_cast<float>(numerator)/static_cast<float>(denominator);
     }
     return sum;
 }
 
+int cosAcc(){
+    int terms;
+    std::cout<<"Accuracy of the computation (1-5): ";
+    std::cin>>terms;
+    while(terms > 5 || terms < 1) {
+        std::cout<<"Must be a number from 1 and 5!"<<std::endl;
+        std::cout<<"Accuracy of the computation (1-5): ";
+        std::cin>>terms;
+    }
+    return terms;
+}
+
 //option 3
-int cosine(int x) {
-    int difference = 0;
-    
-    
+float cosine(int x, int accuracy) {
+    float difference = 1;
+    for(int i = 2; i <= accuracy; i++) {
+        int exponent = 2 * i;
+        int numerator = helppower(x, exponent);
+        int denominator = factorial(2*i);
+        if(i % 2 == 0) { 
+            difference -= static_cast<float>(numerator)/static_cast<float>(denominator);
+        } else {
+            difference += static_cast<float>(numerator)/static_cast<float>(denominator);
+        }
+    }
     return difference;
 }
 
+int findRoot() {
+    int root;
+    std::cout<<"Find the root(2-5): ";
+    std::cin>>root;
+    while(root < 2 || root > 5) {
+        std::cout<<"Must be between 2 and 5!"<<std::endl;
+        std::cout<<"Find the root(2-5): ";
+        std::cin>>root;
+    }
+    return root;
+}
 
 //option 4
 
-int nroot(int x, int n) {
+int getRoot(int x, int n) {
     if(n == 0) {
         
     } else {
         
     }
+    
+    for (int i = 0; i < 100; i++) {
+        
+    }
 }
 
 
-//option 5
+//option 5 - handled by main switch case 5
