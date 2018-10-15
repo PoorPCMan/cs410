@@ -14,6 +14,7 @@ int main(int argc, char **argv) {
     float e1, e2;
     //main menu
     while(running) {
+        std::cout<<" "<<std::endl;
         std::cout<<"------------------------"<<std::endl;
         char userchoice = displaymenu();
     	switch(userchoice) {
@@ -48,14 +49,16 @@ int main(int argc, char **argv) {
                 x = askX(4);
                 root = findRoot();
                 c4 = getRoot(x, root);
-                std::cout<<"Roots of "
+                std::cout<<"the "
+                         <<root
+                         <<"th root of "
                          <<x
                          <<" is "
                          <<c4 <<std::endl;
                 break;
     	    case '5': // Hyperbolic sine of x
                 x = askX(5);
-                terms = expTerms();
+                terms = 8;
                 
                 e1 = exponential(x, terms);
                 e2 = 1/e1;

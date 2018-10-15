@@ -134,16 +134,19 @@ int findRoot() {
 
 //option 4
 
-int getRoot(int x, int n) {
-    if(n == 0) {
-        
-    } else {
-        
-    }
-    
-    for (int i = 0; i < 100; i++) {
-        
-    }
+float getRoot(int x, int n) {
+	int a = x; //the base that we're finding the root of
+	float xn = x; //use given x as initial value -- "Use A as first initial value"
+	int k = n; //the root we're trying to find
+	int counter = 0; //curently at x0
+	while(counter <= 100) {
+		float p = (static_cast<float>(k)-1)*xn;
+		float q = static_cast<float>(a)/(helppower(xn,(k-1)));
+		float r = p+q/static_cast<float>(k);
+		xn = r;
+		counter++; 
+	}
+	return xn;
 }
 
 

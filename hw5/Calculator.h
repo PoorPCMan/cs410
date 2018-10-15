@@ -13,6 +13,6 @@ float exponential(int x, int terms);
 float cosine(int x, int accuracy);
 int cosAcc();
 int findRoot();
-int getRoot(int x, int n);
+float getRoot(int x, int n);
 
 #endif
