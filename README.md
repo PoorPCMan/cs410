@@ -11,7 +11,7 @@ HW2[DONE/Grade: 100%]
 
 HW3[INCOMPLETE/Grade: 75%]
 
-HW4[DONE/Grade: ???]
+HW4[DONE/Grade: 100%]
 
 HW5[NOT-YET-ASSIGNED/Grade: ???]
 
