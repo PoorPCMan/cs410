@@ -19,15 +19,22 @@ int main(int argc, char **argv) {
         char userchoice = displaymenu();
     	switch(userchoice) {
     	    case '1': // Factorial of x
-                x = askX(1);
-                c1 = factorial(x);
-                std::cout<<"Factorial of "
-                         <<x
-                         <<" is "
-                         <<c1 <<std::endl;
+                x = askX();
+                if(x>10 || x<0) {
+                    std::cout<<"X value not accepted!"<<std::endl;
+                    std::cout<<"Please put an X for a value between 0 and 10."<<std::endl;
+                    break;
+                } else {
+                    c1 = factorial(x);
+                    std::cout<<"Factorial of "
+                             <<x
+                             <<" is "
+                             <<c1
+                             <<std::endl;
+                }
                 break;
     	    case '2': // Exponential of x
-                x = askX(2);
+                x = askX();
                 terms = expTerms();
                 c2 = exponential(x, terms);
                 std::cout<<"Exponential of "
@@ -36,17 +43,23 @@ int main(int argc, char **argv) {
                          <<c2 <<std::endl;
                 break;
     	    case '3': // Cosine of x
-                x = askX(3);
+                x = askX();
                 acc = cosAcc();
-                c3 = cosine(x, acc);
-                std::cout<<"Cosine of "
-                         <<x
-                         <<" is "
-                         << std::setprecision(8)
-                         <<c3 <<std::endl;
+                if(acc > 5 || acc < 1) {
+                    std::cout<<"X value not accepted!"<<std::endl;
+                    std::cout<<"Must be a number from 1 and 5!"<<std::endl;
+                } else {
+                    c3 = cosine(x, acc);
+                    std::cout<<"Cosine of "
+                             <<x
+                             <<" is "
+                             << std::setprecision(8)
+                             <<c3
+                             <<std::endl;
+                }
                 break;
     	    case '4': // Roots of x
-                x = askX(4);
+                x = askX();
                 root = findRoot();
                 c4 = getRoot(x, root);
                 std::cout<<"the "
@@ -57,7 +70,7 @@ int main(int argc, char **argv) {
                          <<c4 <<std::endl;
                 break;
     	    case '5': // Hyperbolic sine of x
-                x = askX(5);
+                x = askX();
                 terms = 8;
                 
                 e1 = exponential(x, terms);
@@ -66,6 +79,7 @@ int main(int argc, char **argv) {
                 std::cout<<"Hyperbolic sine of "
                          <<x
                          <<" is "
+                         <<std::setprecision(8)
                          <<c5 <<std::endl;
                 break;
     	    case '6': // Quit

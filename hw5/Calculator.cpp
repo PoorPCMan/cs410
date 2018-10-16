@@ -21,27 +21,10 @@ char displaymenu() {
     return state;
 }
 
-int askX(int choice) {
+int askX() {
     int x;
     std::cout<<"Please choose a value for x: ";
     std::cin >> x;
-    
-    //check boundaries based on option
-    switch(choice) {
-        case 1:
-            while(x>=10 || x<0) {
-                std::cout<<"X value not accepted!"<<std::endl;
-                std::cout<<"Please put an X for a value between 0 and 10."<<std::endl;
-                std::cout<<"Please choose a value for x: ";
-                std::cin >> x;
-            }
-            break;
-        //case 2 allows all X's
-        //case 3 allows all X's
-        //case 4 allows all x's
-        //case 5 allows all X's
-        //TODO: Refactor this switch statement and main func
-    }
     return x;
 }
 
@@ -96,25 +79,24 @@ int cosAcc(){
     int terms;
     std::cout<<"Accuracy of the computation (1-5): ";
     std::cin>>terms;
-    while(terms > 5 || terms < 1) {
-        std::cout<<"Must be a number from 1 and 5!"<<std::endl;
-        std::cout<<"Accuracy of the computation (1-5): ";
-        std::cin>>terms;
-    }
     return terms;
 }
 
 //option 3
 float cosine(int x, int accuracy) {
-    float difference = 1;
-    for(int i = 2; i <= accuracy; i++) {
-        int exponent = 2 * i;
-        int numerator = helppower(x, exponent);
-        int denominator = factorial(2*i);
-        if(i % 2 == 0) { 
-            difference -= static_cast<float>(numerator)/static_cast<float>(denominator);
+    float difference = 0;
+    for(int i = 1; i <= accuracy; i++) { //TODO: Refactor this for loop boundary
+        if (i == 1) { 
+            difference += 1;
         } else {
-            difference += static_cast<float>(numerator)/static_cast<float>(denominator);
+            int exponent = 2 * i;
+            int numerator = helppower(x, exponent);
+            int denominator = factorial(2*i);
+            if(i % 2 == 0) { 
+                difference -= static_cast<float>(numerator)/static_cast<float>(denominator);
+            } else {
+                difference += static_cast<float>(numerator)/static_cast<float>(denominator);
+            }
         }
     }
     return difference;
@@ -139,7 +121,7 @@ float getRoot(int x, int n) {
 	float xn = x; //use given x as initial value -- "Use A as first initial value"
 	int k = n; //the root we're trying to find
 	int counter = 0; //curently at x0
-	while(counter <= 100) {
+	while(counter < k) {
 		float p = (static_cast<float>(k)-1)*xn;
 		float q = static_cast<float>(a)/(helppower(xn,(k-1)));
 		float r = p+q/static_cast<float>(k);

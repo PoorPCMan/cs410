@@ -5,7 +5,7 @@
 
 //Declarations
 char displaymenu();
-int askX(int choice);
+int askX();
 int factorial(int n);
 int helppower(int x, int y);
 int expTerms();
