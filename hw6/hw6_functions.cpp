@@ -1,8 +1,7 @@
-#include <iostream>
-#include <iomanip>
 #include "hw6_functions.h"
 
-creatures creaturelist { 
+
+creature creaturelist { 
     {"Wanda Walrus", 2, 6},
     {"Stanley Sardine", 3, 1},
     {"Sylvia Seahorse", 4, 2},
@@ -19,6 +18,7 @@ creatures creaturelist {
     {"Oscar Tilapia", 5, 3}
 };
 
+
 std::String things_to_say = {
     "Whazzup?",
     "Duuude, totally love the horse head and human body combo!",
@@ -34,10 +34,16 @@ std::String things_to_say = {
     "Don't be so crabby!",
     "Just keep swimming, swimmin, swimming, ...",
     "You just keep sinking, sinking, sinking,..."
+};
+
+int arraysize() {//TODO for later
+    int size = 0;
+    size = sizeof(arr)/sizeof(arr[0]);
+    return size;
 }
 
-int arraysize() {
-    
+int add2Array() {
+    return 0;
 }
 
 creature generateCreature() {
@@ -52,4 +58,42 @@ String generateSaying() {
     int min_limit = 0;
     int random_number = rand()%(max-min + 1) + min;
     return things_to_say[random_number];
+}
+
+
+bool ArrayCheckCreature(creature new_creature) {
+    int size = arraysize(creaturelist);
+    int i = 0;
+    while (i < size) {
+        creature current_creature = creaturelist[i];
+        if(current_creature.name == new_creature.name) {
+            return true;
+        }
+    }
+    return false;
+}
+
+int ArrayCheckStacks(creature clist[]) {
+    int i = 0;
+    int size = arraysize(clist);
+    int stacks = 0;
+    while(i < clist-1) {
+        bool stackable = checkStackable(i, i+1);
+        if (stackable) {
+            stacks++;
+        }
+    }
+    return stacks;
+}
+
+bool checkStackable(creature a, creature b) {
+    int a1 = a.dim1;
+    int a2 = a.dim2;
+    int b1 = b.dim1;
+    int b2 = b.dim2;
+
+    if(a1 >= b1 || a2 >= b2 || b2 >= a2 || b1 >= a1) {
+        return true;
+    }
+    return false;
 }
