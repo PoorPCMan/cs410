@@ -21,7 +21,7 @@ int main(int argc, char **argv)
     //program start greeting
     std::cout<<"Hans is starting his trip to Atlantis!"<<std::endl;
     //main loop
-    while(stacked_cards != 6 || different_creatures != 14) {
+    while(!(stacked_cards == 6) && !(different_creatures == 14)) {
         //spacer
         std::cout<<"--------------------------------------"<<std::endl;
         //generate a random creature BEFORE generating a random saying
@@ -36,19 +36,19 @@ int main(int argc, char **argv)
         std::cout<<"Hit check1"<<std::endl;
         
         //check if array is full, if it is give it viagra
-        if(visited == (sizeof(visitedcreatures)/sizeof(visitedcreatures[0]))) {
-            resizeArr(visitedcreatures, visited); //changes array size(+1)
-        }
+        //if(visited == (sizeof(visitedcreatures)/sizeof(visitedcreatures[0]))) {
+        //    resizeArr(visitedcreatures, visited); //changes array size(+1)
+        //}
         std::cout<<"Hit check1.5"<<std::endl;
         
-        std::cout<<"visited = " << visited <<std::endl;
-        std::cout<<"stacked_cards = " << stacked_cards <<std::endl;
-        std::cout<<"different_creatures = " << different_creatures <<std::endl;
+        //std::cout<<"visited = " << visited <<std::endl;
+        //std::cout<<"stacked_cards = " << stacked_cards <<std::endl;
+        //std::cout<<"different_creatures = " << different_creatures <<std::endl;
         
-        visitedcreatures[visited-1] = c;
+        //visitedcreatures[visited-1] = c;
         
         std::cout<<"Hit check2"<<std::endl;
-        
+        //check if you hit 14 different creatures, if not look for more
         if(ArrayCheckCreature(c, diffcreatures, 14) == false) {
             if(different_creatures != (sizeof(diffcreatures)/sizeof(diffcreatures[0]))) {
                 different_creatures++;

@@ -1,6 +1,6 @@
 #include "hw6_functions.h"
 
-creature creaturelist[] { 
+creature creaturelist[] { //14 in this list
     {"Wanda Walrus", 2, 6},
     {"Stanley Sardine", 3, 1},
     {"Sylvia Seahorse", 4, 2},
@@ -18,7 +18,7 @@ creature creaturelist[] {
 };
 
 
-std::string things_to_say[] = {
+std::string things_to_say[] = { // 14 in this list
     "Whazzup?",
     "Duuude, totally love the horse head and human body combo!",
     "Looking for a card (shark)?",
