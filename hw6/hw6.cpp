@@ -15,8 +15,12 @@ int main(int argc, char **argv)
     //data per visit
     creature c;
     std::string saying = "Blah blah blah";
-    //uses 37 as the seed to generate numbers due to hw requirement
-    std::srand(37);
+    
+    int seed;
+    std::cout<<"Please give a random seed: ";
+    std::cin>>seed;
+    //hw requirement uses 37 as seed
+    std::srand(seed);
     
     //program start greeting
     std::cout<<"Hans is starting his trip to Atlantis!"<<std::endl;
@@ -36,9 +40,9 @@ int main(int argc, char **argv)
         std::cout<<"Hit check1"<<std::endl;
         
         //check if array is full, if it is give it viagra
-        //if(visited == (sizeof(visitedcreatures)/sizeof(visitedcreatures[0]))) {
-        //    resizeArr(visitedcreatures, visited); //changes array size(+1)
-        //}
+        if(visited == (sizeof(visitedcreatures)/sizeof(visitedcreatures[0]))) {
+            resizeArr(visitedcreatures, visited); //changes array size(+1)
+        }
         std::cout<<"Hit check1.5"<<std::endl;
         
         //std::cout<<"visited = " << visited <<std::endl;
@@ -58,9 +62,10 @@ int main(int argc, char **argv)
         
         std::cout<<"Hit check3"<<std::endl;
 
-        //stacked_cards == ArrayCheckStacks(&visitedcreatures, visited);
+        stacked_cards == ArrayCheckStacks(visitedcreatures, visited);
         //TODO For stacked cards have nested for loop to check for stackable cards
         // and then use the maximum value of stacked_cards in those nested for loops as stacked
+        std::cout<<"Hit check4"<<std::endl;
     }
     //stats
     std::cout<<"visited creatures = " << visited <<std::endl;

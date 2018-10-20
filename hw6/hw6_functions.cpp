@@ -51,18 +51,19 @@ int resizeArr(creature oldarr[], int osize) {
         counter++;
     }
     //reaching here, means you get a new array with stuff from oldarray +1 empty space
+    oldarr = newarr;
     return 0;
 }
 
 creature generateCreature() {
-    int max_limit = (sizeof(creaturelist)/sizeof(creaturelist[0]))-1; //TODO: learn and write a sizeof array operator without using anything C++11 and above
+    int max_limit = (sizeof(creaturelist)/sizeof(creaturelist[0])); //TODO: learn and write a sizeof array operator without using anything C++11 and above
     int min_limit = 0;
     int random_number = rand()%(max_limit-min_limit + 1) + min_limit;
     return creaturelist[random_number];
 }
 
 std::string generateSaying() {
-    int max_limit = (sizeof(things_to_say)/sizeof(things_to_say[0]))-1; //TODO: learn and write a sizeof array operator without using anything C++11 and above
+    int max_limit = (sizeof(things_to_say)/sizeof(things_to_say[0])); //TODO: learn and write a sizeof array operator without using anything C++11 and above
     int min_limit = 0;
     int random_number = rand()%(max_limit-min_limit + 1) + min_limit;
     return things_to_say[random_number];
@@ -84,6 +85,18 @@ bool ArrayCheckCreature(creature new_creature, creature visited[], int asize) {
 int ArrayCheckStacks(creature clist[], int csize) {
     int i = 0;
     int stacks = 0;
+    //int maxstack = 0;
+    //for (int i = 0; i < csize; i++) {
+    //    for(int j = 0; i < csize; j++) {
+    //        bool stackable = checkStackable(clist[i], clist[j]);
+    //        if(stackable) {
+    //            stacks++;
+    //        }
+    //    }
+    //    if(stacks > maxstack) {
+    //        maxstack = stacks;
+    //    }
+    //}
     while(i < csize) {
         bool stackable = checkStackable(clist[i], clist[i+1]); 
         if (stackable) {
