@@ -1,7 +1,6 @@
 #include "hw6_functions.h"
 
-
-creature creaturelist { 
+creature creaturelist[] { 
     {"Wanda Walrus", 2, 6},
     {"Stanley Sardine", 3, 1},
     {"Sylvia Seahorse", 4, 2},
@@ -19,7 +18,7 @@ creature creaturelist {
 };
 
 
-std::String things_to_say = {
+std::string things_to_say[] = {
     "Whazzup?",
     "Duuude, totally love the horse head and human body combo!",
     "Looking for a card (shark)?",
@@ -36,56 +35,64 @@ std::String things_to_say = {
     "You just keep sinking, sinking, sinking,..."
 };
 
-int arraysize() {//TODO for later
-    int size = 0;
-    size = sizeof(arr)/sizeof(arr[0]);
-    return size;
-}
+//int arraysize() {TODO for later
+//    int size = 0;
+//    size = sizeof(arr)/sizeof(arr[0]);
+//    return size;
+//}
 
-int add2Array() {
+//resizes an array given the array pointer and its size
+int resizeArr(creature oldarr[], int osize) {
+    creature newarr[osize*2];
+    
+    int counter = 0;
+    while(counter < osize) { //copy over whatevers in the old array
+        newarr[counter] = oldarr[counter];
+        counter++;
+    }
+    //reaching here, means you get a new array with stuff from oldarray +1 empty space
     return 0;
 }
 
 creature generateCreature() {
-    int max_limit = 14; //TODO: learn and write a sizeof array operator without using anything C++11 and above
+    int max_limit = (sizeof(creaturelist)/sizeof(creaturelist[0]))-1; //TODO: learn and write a sizeof array operator without using anything C++11 and above
     int min_limit = 0;
-    int random_number = rand()%(max-min + 1) + min;
+    int random_number = rand()%(max_limit-min_limit + 1) + min_limit;
     return creaturelist[random_number];
 }
 
-String generateSaying() {
-    int max_limit = 14 //TODO: learn and write a sizeof array operator without using anything C++11 and above
+std::string generateSaying() {
+    int max_limit = (sizeof(things_to_say)/sizeof(things_to_say[0]))-1; //TODO: learn and write a sizeof array operator without using anything C++11 and above
     int min_limit = 0;
-    int random_number = rand()%(max-min + 1) + min;
+    int random_number = rand()%(max_limit-min_limit + 1) + min_limit;
     return things_to_say[random_number];
 }
 
 
-bool ArrayCheckCreature(creature new_creature) {
-    int size = arraysize(creaturelist);
+bool ArrayCheckCreature(creature new_creature, creature visited[], int asize) {
     int i = 0;
-    while (i < size) {
-        creature current_creature = creaturelist[i];
+    while (i < asize) {
+        creature current_creature = visited[i];
         if(current_creature.name == new_creature.name) {
             return true;
         }
+        i++;
     }
     return false;
 }
-
-int ArrayCheckStacks(creature clist[]) {
+//PROBABLY NOT RIGHT VVV
+int ArrayCheckStacks(creature clist[], int csize) {
     int i = 0;
-    int size = arraysize(clist);
     int stacks = 0;
-    while(i < clist-1) {
-        bool stackable = checkStackable(i, i+1);
+    while(i < csize) {
+        bool stackable = checkStackable(clist[i], clist[i+1]); 
         if (stackable) {
             stacks++;
         }
     }
     return stacks;
 }
-
+//Helper function to check dimensions 
 bool checkStackable(creature a, creature b) {
     int a1 = a.dim1;
     int a2 = a.dim2;

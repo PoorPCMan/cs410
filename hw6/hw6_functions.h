@@ -30,11 +30,15 @@ struct creature {
 
 //Declarations
 int arraysize();
-int add2Array();
+//arrays passed to functions are decayed to pointers
+int resizeArr(creature oldarr[], int osize);
+//tried to implement a resize function with a template but the linker told me to fuck off
+//decided to just make a 'creature' specific method
+// TODO - lookup why i got cucked by it - id say just use vectors over arrays in most cases but thats just me
 creature generateCreature();
 std::string generateSaying();
-bool ArrayCheckCreature(creature new_creature);
-int ArrayCheckStacks(creature clist[]);
+bool ArrayCheckCreature(creature new_creature, creature visited[], int asize);
+int ArrayCheckStacks(creature clist[], int csize);
 bool checkStackable(creature a, creature b);
 
 #endif
