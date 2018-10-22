@@ -35,12 +35,6 @@ std::string things_to_say[] = { // 14 in this list
     "You just keep sinking, sinking, sinking,..."
 };
 
-//int arraysize() {TODO for later
-//    int size = 0;
-//    size = sizeof(arr)/sizeof(arr[0]);
-//    return size;
-//}
-
 //resizes an array given the array pointer and its size
 int resizeArr(creature oldarr[], int osize) {
     creature newarr[osize*2];

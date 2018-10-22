@@ -35,26 +35,15 @@ int main(int argc, char **argv)
         saying = generateSaying();
         std::cout<< c.name << ": " << saying <<std::endl;
         std::cout<<"Hans gets a "<<c.dim1<<"x"<<c.dim2<<" business card."<<std::endl;
-        
+        //used as a manual counter, to keep track
         visited++;
-        
-        //std::cout<<"Hit check1"<<std::endl;
         
         //check if array is full, if it is give it viagra
         if(visited == (sizeof(visitedcreatures)/sizeof(visitedcreatures[0]))) {
             resizeArr(visitedcreatures, visited); //changes array size(*2)
         }
-        
-        //std::cout<<(sizeof(visitedcreatures)/sizeof(visitedcreatures[0]))<<std::endl;
-        //std::cout<<"Hit check1.5"<<std::endl;
-        
-        //std::cout<<visited<<std::endl;
-        
+        //stuff the creature generated into an array
         visitedcreatures[visited-1] = c;
-        
-        //std::cout<<visitedcreatures[visited-1].name<<std::endl;
-        
-        //std::cout<<"Hit check2"<<std::endl;
         
         //check if you hit 14 different creatures, if not look for more
         if(ArrayCheckCreature(c, diffcreatures, 14) == false) {
@@ -63,19 +52,15 @@ int main(int argc, char **argv)
                 diffcreatures[different_creatures-1] = c;                
             } 
         }
-        
-        //std::cout<<"Hit check3"<<std::endl;
-
+        //check if you got enough cards
         stacked_cards = ArrayCheckStacks(visitedcreatures, visited, stacked);
-        
-        //std::cout<<stacked_cards<<std::endl;
-        
-        //TODO For stacked cards have nested for loop to check for stackable cards
-        // and then use the maximum value of stacked_cards in those nested for loops as stacked
-        
-        //std::cout<<"Hit check4"<<std::endl;
     }
+    //spacer
+    std::cout<<"--------------------------------------"<<std::endl;
+    std::cout<<"!!!--------------DONE--------------!!!"<<std::endl;
+    std::cout<<"--------------------------------------"<<std::endl;
     //stats
+    std::cout<<"Generated with random seed: " << seed <<std::endl;
     std::cout<<"visited creatures = " << visited <<std::endl;
     std::cout<<"stacked_cards = " << stacked_cards <<std::endl;
     std::cout<<"different_creatures = " << different_creatures <<std::endl;
