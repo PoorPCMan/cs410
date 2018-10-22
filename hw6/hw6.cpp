@@ -9,7 +9,7 @@ int main(int argc, char **argv)
     int stacked_cards = 0;
     int different_creatures = 0;
     int visited = 0;
-    creature visitedcreatures[1000];
+    creature visitedcreatures[150]; //readjusted to 150, as per hw details
     creature diffcreatures[14];
     creature stacked[6];
     

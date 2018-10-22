@@ -83,7 +83,7 @@ int ArrayCheckStacks(creature clist[], int csize, creature stack[]) {
     while (i < csize) { //grabs a single creature and compare to the rest
     	creature current_creature = clist[i];
     	int j = 0; // counter for 2nd loop
-        stack[0] = current_creature;
+        stack[0] = current_creature; //store the current creature
         int k = 1; // counter to put in stack array
         int stacks = 1; //assume theres already one in that stack
         while (j < csize) { //loop to compare the rest with the single creature
