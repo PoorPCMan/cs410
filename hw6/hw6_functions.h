@@ -38,7 +38,6 @@ int resizeArr(creature oldarr[], int osize);
 creature generateCreature();
 std::string generateSaying();
 bool ArrayCheckCreature(creature new_creature, creature visited[], int asize);
-int ArrayCheckStacks(creature clist[], int csize);
-bool checkStackable(creature a, creature b);
+int ArrayCheckStacks(creature clist[], int csize, creature stack[]);
 
 #endif

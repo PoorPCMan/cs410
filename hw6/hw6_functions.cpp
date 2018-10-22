@@ -51,6 +51,7 @@ int resizeArr(creature oldarr[], int osize) {
         counter++;
     }
     //reaching here, means you get a new array with stuff from oldarray +1 empty space
+    delete[] oldarr;
     oldarr = newarr;
     return 0;
 }
@@ -82,38 +83,36 @@ bool ArrayCheckCreature(creature new_creature, creature visited[], int asize) {
     return false;
 }
 //PROBABLY NOT RIGHT VVV
-int ArrayCheckStacks(creature clist[], int csize) {
-    int i = 0;
-    int stacks = 0;
-    //int maxstack = 0;
-    //for (int i = 0; i < csize; i++) {
-    //    for(int j = 0; i < csize; j++) {
-    //        bool stackable = checkStackable(clist[i], clist[j]);
-    //        if(stackable) {
-    //            stacks++;
-    //        }
-    //    }
-    //    if(stacks > maxstack) {
-    //        maxstack = stacks;
-    //    }
-    //}
-    while(i < csize) {
-        bool stackable = checkStackable(clist[i], clist[i+1]); 
-        if (stackable) {
-            stacks++;
+int ArrayCheckStacks(creature clist[], int csize, creature stack[]) {
+    int maxstack = 0;
+    int i = 0; //counter for 1st loop
+    while (i < csize) { //grabs a single creature and compare to the rest
+    	creature current_creature = clist[i];
+    	int j = 0; // counter for 2nd loop
+        stack[0] = current_creature;
+        int k = 1; // counter to put in stack array
+        int stacks = 1; //assume theres already one in that stack
+        while (j < csize) { //loop to compare the rest with the single creature
+        	if(j != i) { //avoids the initial entry(the thing we're checking against)
+        		creature check_creature = clist[j];
+        		if(check_creature.dim1 <= current_creature.dim1 && check_creature.dim2 <= current_creature.dim2) {
+        			stacks++;
+                    stack[k] = check_creature;
+                    k++;
+                    current_creature = check_creature; //use the newly found creature's card dimensions as a limit
+        		}
+        	}
+        	j++;  
         }
+        if(stacks == 6) { //leave once you get 6 in a stack
+            maxstack = stacks;
+            break;
+        }
+        
+        if(stacks > maxstack) { // finds the maximum stack # up to 5
+            maxstack = stacks;
+        }
+        i++;
     }
-    return stacks;
-}
-//Helper function to check dimensions 
-bool checkStackable(creature a, creature b) {
-    int a1 = a.dim1;
-    int a2 = a.dim2;
-    int b1 = b.dim1;
-    int b2 = b.dim2;
-
-    if(a1 >= b1 || a2 >= b2 || b2 >= a2 || b1 >= a1) {
-        return true;
-    }
-    return false;
+    return maxstack;
 }

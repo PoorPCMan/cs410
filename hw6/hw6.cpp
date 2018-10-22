@@ -9,8 +9,9 @@ int main(int argc, char **argv)
     int stacked_cards = 0;
     int different_creatures = 0;
     int visited = 0;
-    creature visitedcreatures[14];
+    creature visitedcreatures[1000];
     creature diffcreatures[14];
+    creature stacked[6];
     
     //data per visit
     creature c;
@@ -37,21 +38,24 @@ int main(int argc, char **argv)
         
         visited++;
         
-        std::cout<<"Hit check1"<<std::endl;
+        //std::cout<<"Hit check1"<<std::endl;
         
         //check if array is full, if it is give it viagra
         if(visited == (sizeof(visitedcreatures)/sizeof(visitedcreatures[0]))) {
-            resizeArr(visitedcreatures, visited); //changes array size(+1)
+            resizeArr(visitedcreatures, visited); //changes array size(*2)
         }
-        std::cout<<"Hit check1.5"<<std::endl;
         
-        //std::cout<<"visited = " << visited <<std::endl;
-        //std::cout<<"stacked_cards = " << stacked_cards <<std::endl;
-        //std::cout<<"different_creatures = " << different_creatures <<std::endl;
+        //std::cout<<(sizeof(visitedcreatures)/sizeof(visitedcreatures[0]))<<std::endl;
+        //std::cout<<"Hit check1.5"<<std::endl;
         
-        //visitedcreatures[visited-1] = c;
+        //std::cout<<visited<<std::endl;
         
-        std::cout<<"Hit check2"<<std::endl;
+        visitedcreatures[visited-1] = c;
+        
+        //std::cout<<visitedcreatures[visited-1].name<<std::endl;
+        
+        //std::cout<<"Hit check2"<<std::endl;
+        
         //check if you hit 14 different creatures, if not look for more
         if(ArrayCheckCreature(c, diffcreatures, 14) == false) {
             if(different_creatures != (sizeof(diffcreatures)/sizeof(diffcreatures[0]))) {
@@ -60,12 +64,16 @@ int main(int argc, char **argv)
             } 
         }
         
-        std::cout<<"Hit check3"<<std::endl;
+        //std::cout<<"Hit check3"<<std::endl;
 
-        stacked_cards == ArrayCheckStacks(visitedcreatures, visited);
+        stacked_cards = ArrayCheckStacks(visitedcreatures, visited, stacked);
+        
+        //std::cout<<stacked_cards<<std::endl;
+        
         //TODO For stacked cards have nested for loop to check for stackable cards
         // and then use the maximum value of stacked_cards in those nested for loops as stacked
-        std::cout<<"Hit check4"<<std::endl;
+        
+        //std::cout<<"Hit check4"<<std::endl;
     }
     //stats
     std::cout<<"visited creatures = " << visited <<std::endl;
@@ -79,6 +87,11 @@ int main(int argc, char **argv)
     
     if(stacked_cards == 6) {
         std::cout<<"Hans has escaped Atlantis by stacking 6 cards!"<<std::endl;
+        std::cout<<"----"<<std::endl;
+        for(int i = 0; i < 6; i++) {
+            std::cout<<stacked[i].dim1<<"x"<<stacked[i].dim2<<std::endl;
+        }
+        std::cout<<"----"<<std::endl;
     }
     
     return 0;
