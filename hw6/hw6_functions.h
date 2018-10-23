@@ -31,7 +31,7 @@ struct creature {
 //Declarations
 int arraysize();
 //arrays passed to functions are decayed to pointers
-int resizeArr(creature oldarr[], int osize);
+//int resizeArr(creature oldarr[], int osize);
 //tried to implement a resize function with a template but the linker told me to fuck off
 //decided to just make a 'creature' specific method
 // TODO - lookup why i got cucked by it - id say just use vectors over arrays in most cases but thats just me

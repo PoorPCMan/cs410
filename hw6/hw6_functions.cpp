@@ -18,7 +18,7 @@ creature creaturelist[] { //14 in this list
 };
 
 
-std::string things_to_say[] = { // 14 in this list
+const std::string things_to_say[] = { // 14 in this list
     "Whazzup?",
     "Duuude, totally love the horse head and human body combo!",
     "Looking for a card (shark)?",
@@ -35,30 +35,15 @@ std::string things_to_say[] = { // 14 in this list
     "You just keep sinking, sinking, sinking,..."
 };
 
-//resizes an array given the array pointer and its size
-int resizeArr(creature oldarr[], int osize) {
-    creature newarr[osize*2];
-    
-    int counter = 0;
-    while(counter < osize) { //copy over whatevers in the old array
-        newarr[counter] = oldarr[counter];
-        counter++;
-    }
-    //reaching here, means you get a new array with stuff from oldarray +1 empty space
-    delete[] oldarr;
-    oldarr = newarr;
-    return 0;
-}
-
 creature generateCreature() {
-    int max_limit = (sizeof(creaturelist)/sizeof(creaturelist[0])); //TODO: learn and write a sizeof array operator without using anything C++11 and above
+    int max_limit = (sizeof(creaturelist)/sizeof(creaturelist[0]))-1; //TODO: learn and write a sizeof array operator without using anything C++11 and above
     int min_limit = 0;
     int random_number = rand()%(max_limit-min_limit + 1) + min_limit;
     return creaturelist[random_number];
 }
 
 std::string generateSaying() {
-    int max_limit = (sizeof(things_to_say)/sizeof(things_to_say[0])); //TODO: learn and write a sizeof array operator without using anything C++11 and above
+    int max_limit = (sizeof(things_to_say)/sizeof(things_to_say[0]))-1; //TODO: learn and write a sizeof array operator without using anything C++11 and above
     int min_limit = 0;
     int random_number = rand()%(max_limit-min_limit + 1) + min_limit;
     return things_to_say[random_number];
